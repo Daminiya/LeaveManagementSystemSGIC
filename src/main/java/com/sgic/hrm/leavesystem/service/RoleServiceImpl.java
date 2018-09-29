@@ -1,7 +1,10 @@
 package com.sgic.hrm.leavesystem.service;
 
+
+import java.util.Optional;
 import java.util.ArrayList;
 import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +24,11 @@ public class RoleServiceImpl implements RoleService {
 		roleRepository.save(role);
 		return true;
 	}
+  
+  @Override
+	public Optional<Role> getRoleById(Integer id) {
+		return roleRepository.findById(id);
+  }
 
 	@Override
 	public List<Role> getAllRoles() {
